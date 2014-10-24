@@ -18,5 +18,6 @@ Test server for TXTR. Includes prosody and ejabberd config files and some requir
 4. MySQL -> **OK**
 5. LuaEvent -> **OK**
 
+
 ### ejabberd
 * Basic config
