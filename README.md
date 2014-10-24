@@ -15,7 +15,7 @@ Test server for TXTR. Includes prosody and ejabberd config files and some requir
 1. zLib -> **OK**
 2. LuaSec 0.5 -> **OK**
 3. LuaDBI *(lua-dbi-mysql)* -> **OK**
-4. MySQL -> **OK DB** *(prosody / mysql integration pending)*
+4. MySQL -> **OK**
 
 ### ejabberd
 * Basic config
