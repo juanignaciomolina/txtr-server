@@ -2,6 +2,11 @@
 
 Test server for TXTR. Includes prosody and ejabberd config files and some required modules.
 
+## Design
+![screenshots](https://raw.githubusercontent.com/juanignaciomolina/txtr-server/master/TXTR-LayersDiagram.png)
+
+## XMPP Servers
+
 ### Prosody
 
 ##### Client-Server
