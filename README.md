@@ -5,6 +5,22 @@ Test server for TXTR. Includes prosody and ejabberd config files and some requir
 ## Design
 ![screenshots](https://raw.githubusercontent.com/juanignaciomolina/txtr-server/master/TXTR-LayersDiagram.png)
 
+## TXTR Server
+
+###### General
+
+* pinRequest: Generate new unique PIN
+
+###### Config
+
+* mysqlconfig: MySQL txtrCore user configuration
+* opendbprosody: Open connection to 'prosody' database (Prosody XMPP Server table)
+* closedbprosody: Close connection to 'prosody' database
+
+###### Utils
+
+* pintools: Useful tools to manage and generate PINs
+
 ## XMPP Servers
 
 ### Prosody
@@ -28,22 +44,6 @@ Test server for TXTR. Includes prosody and ejabberd config files and some requir
 
 * Basic config
 
-## TXTR Layer
-
-###### General
-
-* pinRequest: Generate new unique PIN
-
-###### Config
-
-* mysqlconfig: MySQL user configuration to database
-* opendbprosody: Open connection to 'prosody' database (Prosody XMPP Server table)
-* closedbprosody: Close connection to 'prosody' database
-
-###### Utils
-
-* pintools: Useful tools to manage and generate PINs
-
-## Notes
+## Additional notes
 
 * mysqld.sock [FIX INFO](http://stackoverflow.com/questions/11990708/error-cant-connect-to-local-mysql-server-through-socket-var-run-mysqld-mysq)
