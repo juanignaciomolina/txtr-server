@@ -1,8 +1,12 @@
 # txtr-server
 
-Test server for TXTR. Includes prosody and ejabberd config files and some required modules.
+**Server side for TXTR XMPP service**
+Includes 3 layers:
+1. TXTR server
+2. MySQL database engine
+2. Prosody XMPP server
 
-## Design
+## Overview
 ![screenshots](https://raw.githubusercontent.com/juanignaciomolina/txtr-server/master/TXTR-LayersDiagram.png)
 
 ## TXTR Server
