@@ -25,8 +25,13 @@ Test server for TXTR. Includes prosody and ejabberd config files and some requir
 
 
 ### ejabberd
+
 * Basic config
 
-### Notes
+## TXTR Layer
+
+* pinRequest: Generate new PIN
+
+## Notes
 
 * mysqld.sock [FIX INFO](http://stackoverflow.com/questions/11990708/error-cant-connect-to-local-mysql-server-through-socket-var-run-mysqld-mysq)
