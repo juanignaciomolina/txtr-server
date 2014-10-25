@@ -30,7 +30,19 @@ Test server for TXTR. Includes prosody and ejabberd config files and some requir
 
 ## TXTR Layer
 
-* pinRequest: Generate new PIN
+###### General
+
+* pinRequest: Generate new unique PIN
+
+###### Config
+
+* mysqlconfig: MySQL user configuration to database
+* opendbprosody: Open connection to 'prosody' database (Prosody XMPP Server table)
+* closedbprosody: Close connection to 'prosody' database
+
+###### Utils
+
+* pintools: Useful tools to manage and generate PINs
 
 ## Notes
 

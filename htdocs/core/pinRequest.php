@@ -3,15 +3,17 @@
 	<body>
 
 		<?php
-			//Random 7 chars (A-Z,0-9) PIN
-			$alphabet = array_merge(range('A', 'Z'), range(0, 9));
-			$pincode = 	$alphabet[rand(0,35)].
-						$alphabet[rand(0,35)].
-						$alphabet[rand(0,35)].
-						$alphabet[rand(0,35)].
-						$alphabet[rand(0,35)].
-						$alphabet[rand(0,35)].
-						$alphabet[rand(0,35)];
+
+			//pintools.php has some useful tools for generating PINs
+			include 'utils/pintools.php';
+
+			$pincode;
+			//We are gonna keep generating PINs until we get one that is unique
+			do { 
+				$pincode = generatePincode();	
+			} while ( checkExistance($pincode) );
+			
+			//Finally, a unique PIN is returned
 			echo $pincode;
 		?>
 
