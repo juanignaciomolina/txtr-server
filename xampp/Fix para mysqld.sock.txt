@@ -1,2 +1,0 @@
-2 respuesta de:
-http://stackoverflow.com/questions/11990708/error-cant-connect-to-local-mysql-server-through-socket-var-run-mysqld-mysq

@@ -1,7 +1,9 @@
 # txtr-server
 
 **Server side for TXTR XMPP service**
+
 Includes 3 layers:
+
 1. TXTR server
 2. MySQL database engine
 2. Prosody XMPP server
@@ -25,9 +27,7 @@ Includes 3 layers:
 
 * pintools: Useful tools to manage and generate PINs
 
-## XMPP Servers
-
-### Prosody
+## Prosody XMPP Server
 
 ##### Client-Server
 1. XEP-0163: PEP (Avatars) -> **OK**
@@ -42,11 +42,6 @@ Includes 3 layers:
 3. LuaDBI *(lua-dbi-mysql)* [INFO](http://prosody.im/doc/depends) -> **OK**
 4. MySQL [INFO](http://prosody.im/doc/storage) -> **OK**
 5. LuaEvent [INFO](http://prosody.im/doc/depends) -> **OK**
-
-
-### ejabberd
-
-* Basic config
 
 ## Additional notes
 
