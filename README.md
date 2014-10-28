@@ -22,10 +22,12 @@ Includes 3 layers:
 * mysqlconfig: MySQL txtrCore user configuration
 * opendbprosody: Open connection to 'prosody' database (Prosody XMPP Server table)
 * closedbprosody: Close connection to 'prosody' database
+* hostconfig: Virtual host configuration file
 
 ###### Utils
 
 * pintools: Useful tools to manage and generate PINs
+* gentools: General use functions for using server-wide
 
 ## Prosody XMPP Server
 
