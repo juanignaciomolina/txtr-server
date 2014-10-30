@@ -20,7 +20,7 @@
 		include './config/hostconfig.php';
 
 		//Query to count how many rows got the same user id as the $pincode, should return 0 or 1
-		$query = "SELECT * FROM '$dbprosody_table' WHERE '$dbprosody_user'='$pincode' AND '$dbprosody_store'='accounts'";
+		$query = "SELECT * FROM prosody WHERE '$dbprosody_user'='$pincode' AND '$dbprosody_store'='accounts'";
 		$result = MySQL_query($query);
 		$nrows = mysql_num_rows($result);
 		//If $nrows == 0 the $pincode generated is unique in the db
@@ -43,7 +43,7 @@
 		include './config/hostconfig.php';
 
 		//Query to count insert
-		$query = "INSERT INTO '$dbprosody_table'
+		$query = "INSERT INTO prosody
 				('$dbprosody_host', '$dbprosody_user', '$dbprosody_store', '$dbprosody_key', '$dbprosody_type', '$dbprosody_value')
 				VALUES ('$virtualhost','$pincode', 'accounts', 'password', 'string', '$password')";
 		$result = MySQL_query($query);
