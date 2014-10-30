@@ -20,14 +20,16 @@
 		include './config/hostconfig.php';
 
 		//Query to count how many rows got the same user id as the $pincode, should return 0 or 1
-		$query = "SELECT * FROM prosody WHERE '$dbprosody_user'='$pincode' AND '$dbprosody_store'='accounts'";
-		$result = MySQL_query($query);
-		$nrows = mysql_num_rows($result);
-		//If $nrows == 0 the $pincode generated is unique in the db
-		if ($nrows == 0) {
-			$returnCode = false;
+		$query = "SELECT ".$dbprosody_user.", ".$dbprosody_store.
+		" FROM ". $dbprosody_table .
+		" WHERE ".$dbprosody_user."=".$pincode." AND ".$dbprosody_store."='accounts'";
+		$result = mysqli_query($connDbProsody, $query);
+
+		//If num_rows == 0 the $pincode generated is unique in the db
+		if (mysqli_num_rows($result) == 0) {
+		    $returnCode = false;
 		} else {
-			$returnCode = true;
+		    $returnCode = true;
 		}
 
 		//Close MySQL connection to db prosody
@@ -42,17 +44,23 @@
 		include './config/opendbprosody.php';
 		include './config/hostconfig.php';
 
-		//Query to count insert
-		$query = "INSERT INTO prosody
-				('$dbprosody_host', '$dbprosody_user', '$dbprosody_store', '$dbprosody_key', '$dbprosody_type', '$dbprosody_value')
-				VALUES ('$virtualhost','$pincode', 'accounts', 'password', 'string', '$password')";
-		$result = MySQL_query($query);
+		$query = "INSERT INTO ".$dbprosody_table.
+		" (".$dbprosody_user.", ".$dbprosody_value.")
+		VALUES ('".$pincode."', '".$password."')";
+
+		if (mysqli_query($connDbProsody, $query)) {
+		    echo "New record created successfully <br>";
+		    $returnCode = true;
+		} else {
+		    echo "Error: " . $query . "<br>" . mysqli_error($connDbProsody) . "<br>";
+		    $returnCode = false;
+		}
 
 		//Close MySQL connection to db prosody
 		include './config/closedbprosody.php';
 
 		//The result of the query (true, false) is returned
-		return $result;
+		return $returnCode;
 	}	
 
 ?>
