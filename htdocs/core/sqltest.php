@@ -21,23 +21,14 @@
 			$dbprosody_type = 'type';
 			$dbprosody_value = 'value';
 
-			$pincode = "TESTSQL";
-			$password = "AAABBBCCC123";
-
-
-			$servername = "localhost";
-			$username = "txtrCore";
-			$password = "d5rxTGB2Rr3eHx73";
-			$dbname = "prosody";
-
 			// Create connection
-			$conn = mysqli_connect($servername, $username, $password, $dbname);
+			$conn = mysqli_connect($dbhost, $dbuser, $dbpass, $dbprosody);
 			// Check connection
 			if (!$conn) {
 			    die("Connection failed: " . mysqli_connect_error());
 			}
 
-			$sql = "SELECT user, store, value FROM ". $dbprosody_table ."";
+			$sql = "SELECT ".$dbprosody_user.", ".$dbprosody_store.", ".$dbprosody_value." FROM ". $dbprosody_table ."";
 			$result = mysqli_query($conn, $sql);
 
 			if (mysqli_num_rows($result) > 0) {
@@ -49,14 +40,14 @@
 			    echo "0 results";
 			}
 
-			$sql = "INSERT INTO prosody (host, user)
+			/*$sql = "INSERT INTO prosody (host, user)
 			VALUES ('TEST.COM', 'TEST')";
 
 			if (mysqli_query($conn, $sql)) {
 			    echo "New record created successfully";
 			} else {
 			    echo "Error: " . $sql . "<br>" . mysqli_error($conn);
-			}
+			}*/
 
 			mysqli_close($conn);
 		?>
