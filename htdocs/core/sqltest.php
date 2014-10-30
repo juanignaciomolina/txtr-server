@@ -34,7 +34,7 @@
 			if (mysqli_num_rows($result) > 0) {
 			    // output data of each row
 			    while($row = mysqli_fetch_assoc($result)) {
-			        echo "user: " . $row["user"]. " - store: " . $row["store"]. " - value: " . $row["value"].   "<br>";
+			        echo "user: " . $row[$dbprosody_user]. " - store: " . $row[$dbprosody_store]. " - value: " . $row[$dbprosody_value].   "<br>";
 			    }
 			} else {
 			    echo "0 results";
