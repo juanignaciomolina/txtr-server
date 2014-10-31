@@ -19,14 +19,10 @@
 		include './config/opendbprosody.php';
 		include './config/hostconfig.php';
 
-		/*//Query to count how many rows got the same user id as the $pincode, should return 0 or 1
-		$query = "SELECT ".$dbprosody_user.", ".$dbprosody_store.
-		" FROM ". $dbprosody_table .
-		" WHERE ".$dbprosody_user."=".$pincode." AND ".$dbprosody_store."='accounts'";*/
 		//Query to count how many rows got the same user id as the $pincode, should return 0 or 1
-		/*$query = "SELECT * FROM ". $dbprosody_table ." WHERE ".$dbprosody_user."=".$pincode;*/
-
-		$query = "SELECT ".$dbprosody_user.", ".$dbprosody_store." FROM ". $dbprosody_table ." WHERE ".$dbprosody_user."='".$pincode."' AND ".$dbprosody_store."='".$dbprosody_col_acc."'";
+		$query = 	"SELECT ".$dbprosody_user.", ".$dbprosody_store.
+					" FROM ". $dbprosody_table .
+					" WHERE ".$dbprosody_user."='".$pincode."' AND ".$dbprosody_store."='".$dbprosody_col_acc."'";
 
 		$result = mysqli_query($connDbProsody, $query);
 
