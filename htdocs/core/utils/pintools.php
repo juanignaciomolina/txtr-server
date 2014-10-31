@@ -45,8 +45,8 @@
 		include './config/hostconfig.php';
 
 		$query = "INSERT INTO ".$dbprosody_table.
-		" (".$dbprosody_user.", ".$dbprosody_value.")
-		VALUES ('".$pincode."', '".$password."')";
+		" (".$dbprosody_host.", ".$dbprosody_user.", ".$dbprosody_store.", ".$dbprosody_value.")
+		VALUES ('".$virtualhost."', '".$pincode."', '".$dbprosody_col_acc."', '".$password."')";
 
 		if (mysqli_query($connDbProsody, $query)) {
 		    echo "New record created successfully <br>";

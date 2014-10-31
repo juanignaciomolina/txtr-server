@@ -13,6 +13,13 @@
 	$dbprosody_key = 'key';
 	$dbprosody_type = 'type';
 	$dbprosody_value = 'value';
+	//Common values for columns
+	$dbprosody_col_pass = 'password';
+	$dbprosody_col_acc = 'accounts';
+	$dbprosody_col_rost = 'roster';
+	$dbprosody_col_string = "string";
+	$dbprosody_col_json = "json";
+	
 	
 	// Create connection
 	$connDbProsody = mysqli_connect($dbhost, $dbuser, $dbpass, $dbprosody);
