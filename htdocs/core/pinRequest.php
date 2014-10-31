@@ -11,6 +11,13 @@
 			//Static
 			$MAX_ATTEMPTS = 5;
 
+			//Check how the output is needed, may be plain html or a json object. Defualt is HTML
+			if (isset($_GET["output"])) {
+				$output = $_GET["output"];
+			}
+			else {
+				$output = 'html';
+			}
 
 			$pincode;
 			$retry = 0;
@@ -18,22 +25,27 @@
 			do { 
 				$pincode = generatePincode();	
 				$retry++;
-				echo "Attempt ".$retry." of ".$MAX_ATTEMPTS." ...<br>";
+				if ($output == 'html') { echo "Attempt ".$retry." of ".$MAX_ATTEMPTS." ...<br>"; };
 			} while ( checkExistance($pincode) and ($retry <= $MAX_ATTEMPTS) );
 
 			//We add some logic to prevent infinit loops
 			if ($retry > $MAX_ATTEMPTS) {
-				echo "Error: Max attempts reach";
+				if ($output == 'html') { echo "Error: Max attempts reach"; };
 			}
 			else {
 
 				$password = generatePassword();
 
 				//Insert the new $pincode in the db
-				makePin($pincode, $password);
+				if ( makePin($pincode, $password) ) {
+					if ($output == 'html') { echo "New record created successfully <br>"; };
+				}
+				else {
+					if ($output == 'html') { echo "Error: ". mysqli_error($connDbProsody) . "<br>"; };
+				}
 				
 				//Finally, a unique PIN is returned
-				echo "PIN: ".$pincode."<br> Password: ".$password;
+				if ($output == 'html') { echo "PIN: ".$pincode."<br> Password: ".$password; };
 
 			}
 

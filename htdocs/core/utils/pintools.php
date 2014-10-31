@@ -49,10 +49,8 @@
 					" VALUES ('".$virtualhost."', '".$pincode."', '".$dbprosody_col_acc."', '".$dbprosody_col_pass."', '".$dbprosody_col_string."', '".$password."')";
 
 		if (mysqli_query($connDbProsody, $query)) {
-		    echo "New record created successfully <br>";
 		    $returnCode = true;
 		} else {
-		    echo "Error: " . $query . "<br>" . mysqli_error($connDbProsody) . "<br>";
 		    $returnCode = false;
 		}
 
@@ -73,10 +71,8 @@
 					" WHERE ".$dbprosody_user."='".$pincode."' AND ".$dbprosody_store."='".$dbprosody_col_acc."'";
 
 		if (mysqli_query($connDbProsody, $query)) {
-		    echo "Record deleted successfully <br>";
 		    $returnCode = true;
 		} else {
-		    echo "Error: " . $query . "<br>" . mysqli_error($connDbProsody) . "<br>";
 		    $returnCode = false;
 		}
 
@@ -97,10 +93,8 @@
 					" WHERE ".$dbprosody_user."='".$pincode."'";
 
 		if (mysqli_query($connDbProsody, $query)) {
-		    echo "Record purged successfully <br>";
 		    $returnCode = true;
 		} else {
-		    echo "Error: " . $query . "<br>" . mysqli_error($connDbProsody) . "<br>";
 		    $returnCode = false;
 		}
 
