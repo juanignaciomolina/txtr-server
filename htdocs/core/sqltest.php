@@ -7,8 +7,8 @@
 			include 'utils/pintools.php';
 			include 'utils/gentools.php';
 
-			$pincode = '7AYTSE9';
-			deletePin($pincode);
+			$pincode = 'emma';
+			purgePin($pincode);
 
 		?>
 

@@ -85,6 +85,30 @@
 
 		//The result of the query (true, false) is returned
 		return $returnCode;
-	}	
+	}
+
+	function purgePin ($pincode) {
+		//Open MySQL connection to db prosody
+		include './config/mysqlconfig.php';
+		include './config/opendbprosody.php';
+		include './config/hostconfig.php';
+
+		$query = 	"DELETE FROM ".$dbprosody_table.
+					" WHERE ".$dbprosody_user."='".$pincode."'";
+
+		if (mysqli_query($connDbProsody, $query)) {
+		    echo "Record purged successfully <br>";
+		    $returnCode = true;
+		} else {
+		    echo "Error: " . $query . "<br>" . mysqli_error($connDbProsody) . "<br>";
+		    $returnCode = false;
+		}
+
+		//Close MySQL connection to db prosody
+		include './config/closedbprosody.php';
+
+		//The result of the query (true, false) is returned
+		return $returnCode;
+	}		
 
 ?>
