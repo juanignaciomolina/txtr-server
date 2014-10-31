@@ -11,7 +11,7 @@
 			//Static
 			$MAX_ATTEMPTS = 5;
 
-			//Check how the output is needed, may be plain html or a json object. Defualt is HTML
+			//Check how the output is needed, may be plain html or a json object. Default is HTML
 			if (isset($_GET["output"])) {
 				$output = $_GET["output"];
 			}
@@ -38,15 +38,24 @@
 
 				//Insert the new $pincode in the db
 				if ( makePin($pincode, $password) ) {
-					if ($output == 'html') { echo "New record created successfully <br>"; };
+					if ($output == 'html') { 
+						echo "New record created successfully <br>";
+						//Finally, a unique PIN is returned
+						echo "PIN: ".$pincode."<br> Password: ".$password;
+					};
+					if ($output == 'json') {
+						$jsonarray = array("success"=>true,"pin"=>$pincode, "password"=>$password);
+						echo json_encode($jsonarray);
+					}
 				}
 				else {
 					if ($output == 'html') { echo "Error: ". mysqli_error($connDbProsody) . "<br>"; };
+					if ($output == 'json') {
+						$jsonarray = array("success"=>false,"pin"=>null, "password"=>null);
+						echo json_encode($jsonarray);
+					}
 				}
 				
-				//Finally, a unique PIN is returned
-				if ($output == 'html') { echo "PIN: ".$pincode."<br> Password: ".$password; };
-
 			}
 
 		?>
