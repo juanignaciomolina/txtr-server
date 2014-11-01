@@ -9,7 +9,7 @@
 
 	//Status Code 303: "See Other"
 	function redirect($url, $statusCode = 303) {
-	   header('Location: ' . $url, true, $statusCode);
+	   header('Location: ../' . $url, true, $statusCode);
 	   die();
 	}
 

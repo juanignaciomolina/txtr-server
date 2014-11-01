@@ -2,5 +2,5 @@
 deny from all
 </Files>
 Options Indexes
-DirectoryIndex api/api.php index.php index.html     
+DirectoryIndex ../api/api.php index.php index.html     
 order deny,allow
