@@ -18,6 +18,11 @@ Includes 3 layers:
 * pinRequest: Generate new unique PIN
 * pinRegister: Register a given PIN in the DB
 
+###### API
+
+* api: JSON/HTML REST API with numerous methods for working with PINs
+* URL: api.droidko.com/?arg=value
+
 ###### Config
 
 * mysqlconfig: MySQL txtrCore user configuration
