@@ -31,7 +31,7 @@
 
 			if ($retry > $MAX_ATTEMPTS) {
 				if ($output == 'html') { echo "Error: Max attempts reach"; }
-				elseif ($output == 'json') { echo pinJSON(false, null, null); }
+				elseif ($output == 'json') { echo pinJSON(false, null); }
 			}
 			else {
 				//Finally, a unique PIN is returned
@@ -39,7 +39,7 @@
 					echo "Unique PIN found<br>";
 					echo "PIN: ".$pincode;
 				};
-				if ($output == 'json') { echo pinJSON(true, $pincode, null); }				
+				if ($output == 'json') { echo pinJSON(true, $pincode); }				
 			}
 
 		?>
