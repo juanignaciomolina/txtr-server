@@ -4,6 +4,11 @@
 
 		<?php
 
+			/*	DESCRIPTION: Generates a unique PIN (uniqueness validated with the DB)
+				INPUT: none
+				OUTPUT: HTML / JSON of a unique PIN
+			*/
+
 			//pintools.php has some useful tools for generating PINs
 			include 'utils/pintools.php';
 			include 'utils/jsontools.php';

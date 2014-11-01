@@ -4,6 +4,11 @@
 
 		<?php
 
+			/*	DESCRIPTION: Try to insert a pincode and a generic password in the DB.
+				INPUT: pincode (7 chars lowercase string)
+				OUTPUT: HTML / JSON of a unique PIN with it's password
+			*/
+
 			//pintools.php has some useful tools for generating PINs and passwords
 			include 'utils/pintools.php';
 			include 'utils/gentools.php';
