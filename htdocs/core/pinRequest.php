@@ -4,9 +4,9 @@
 
 		<?php
 
-			//pintools.php has some useful tools for generating PINs and passwords
+			//pintools.php has some useful tools for generating PINs
 			include 'utils/pintools.php';
-			include 'utils/gentools.php';
+			include 'utils/jsontools.php';
 
 			//Static
 			$MAX_ATTEMPTS = 5;
@@ -26,36 +26,20 @@
 				$pincode = generatePincode();	
 				$retry++;
 				if ($output == 'html') { echo "Attempt ".$retry." of ".$MAX_ATTEMPTS." ...<br>"; };
+			//We add some logic to prevent infinit loops
 			} while ( checkExistance($pincode) and ($retry <= $MAX_ATTEMPTS) );
 
-			//We add some logic to prevent infinit loops
 			if ($retry > $MAX_ATTEMPTS) {
-				if ($output == 'html') { echo "Error: Max attempts reach"; };
+				if ($output == 'html') { echo "Error: Max attempts reach"; }
+				elseif ($output == 'json') { echo pinJSON(false, null, null); }
 			}
 			else {
-
-				$password = generatePassword();
-
-				//Insert the new $pincode in the db
-				if ( makePin($pincode, $password) ) {
-					if ($output == 'html') { 
-						echo "New record created successfully <br>";
-						//Finally, a unique PIN is returned
-						echo "PIN: ".$pincode."<br> Password: ".$password;
-					};
-					if ($output == 'json') {
-						$jsonarray = array("success"=>true,"pin"=>$pincode, "password"=>$password);
-						echo json_encode($jsonarray);
-					}
-				}
-				else {
-					if ($output == 'html') { echo "Error: ". mysqli_error($connDbProsody) . "<br>"; };
-					if ($output == 'json') {
-						$jsonarray = array("success"=>false,"pin"=>null, "password"=>null);
-						echo json_encode($jsonarray);
-					}
-				}
-				
+				//Finally, a unique PIN is returned
+				if ($output == 'html') { 
+					echo "Unique PIN found<br>";
+					echo "PIN: ".$pincode;
+				};
+				if ($output == 'json') { echo pinJSON(true, $pincode, null); }				
 			}
 
 		?>
