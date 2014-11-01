@@ -16,6 +16,7 @@ Includes 3 layers:
 ###### General
 
 * pinRequest: Generate new unique PIN
+* pinRegister: Register a given PIN in the DB
 
 ###### Config
 
@@ -28,6 +29,7 @@ Includes 3 layers:
 
 * pintools: Useful tools to manage and generate PINs
 * gentools: General use functions for using server-wide
+* jsontools: Library for JSON objects encode and management
 
 ## Prosody XMPP Server
 
