@@ -1,4 +1,10 @@
 <?php
+	/*	DESCRIPTION: JSON/HTML REST API with numerous methods for working with PINs
+		INPUT: method (mandatory string) + others optional arguments
+		OUTPUT: HTML / JSON depending on the method specified
+		EXAMPLE: api.droidko.com/pin.php?method=pinRegister&pincode=AAABBBC
+	*/
+
 	//Static
 	$methods = array(
 				"pinRequest",
