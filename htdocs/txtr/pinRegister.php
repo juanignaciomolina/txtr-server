@@ -7,6 +7,7 @@
 			/*	DESCRIPTION: Try to insert a pincode and a generic password in the DB.
 				INPUT: pincode (7 chars lowercase string)
 				OUTPUT: HTML / JSON of a unique PIN with it's password
+				EXAMPLE: /pinRegister.php?pincode=AAABBBC
 			*/
 
 			//pintools.php has some useful tools for generating PINs and passwords
