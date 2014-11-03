@@ -58,7 +58,10 @@
 						//Finally, a unique PIN and it's password is returned
 						if ($output == 'html') { 
 							echo "New record created successfully <br>";
-							echo "PIN: ".$pincode."<br> Password: ".$password;
+							echo "PIN: ".$pincode."<br>";
+							echo "Password: ".$password. "<br>";
+							echo "Token: ".$pintoken. "<br>";
+							echo "Host: ".$virtualhost. "<br>";
 						}
 						elseif ($output == 'json') { echo pinJSON(1, $pincode, $password, $virtualhost, null, $pintoken); }
 					}
