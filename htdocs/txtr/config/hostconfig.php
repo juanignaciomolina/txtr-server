@@ -1,5 +1,5 @@
 <?php
 	// Virtual host config
 	$virtualhost = 'droidko.com';
-	$pintokenkey = '}bb|8P8<^MzB(V@2qEXf6t4u/$HT|]0A&vv_X>aI.Ct2VpM`]Iqh/^2ft:}V>/6F';
+	$pintokenkey = 'b687brY5N"C43M8z}mXr&Fx7RW#nQ!X^10<9yk"hLf40;j92(vS58[0`ZzY&13%'; //504-bit WPA Key
 ?>
