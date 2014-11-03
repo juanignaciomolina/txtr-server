@@ -1,8 +1,4 @@
-<!DOCTYPE html>
-<html>
-	<body>
-
-		<?php
+<?php
 
 			/*	DESCRIPTION: Generates a unique PIN (uniqueness validated with the DB)
 				INPUT: none
@@ -49,6 +45,3 @@
 			}
 
 		?>
-
-	</body>
-</html>

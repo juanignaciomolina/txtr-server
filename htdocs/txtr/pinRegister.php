@@ -1,7 +1,3 @@
-<!DOCTYPE html>
-<html>
-	<body>
-
 		<?php
 
 			/*	DESCRIPTION: Try to insert a pincode and a generic password in the DB.
@@ -65,6 +61,3 @@
 			}
 
 		?>
-
-	</body>
-</html>
