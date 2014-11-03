@@ -3,11 +3,11 @@
 	//This is an overloaded function, every argument is optional. If an argmuent is not supplied,
 	//the function will use the default values specified
 	//Arguments: pinJSON($success, $pincode, $password, $host, $timestamp, $token)
-	function pinJSON($success = null, $pincode = null, $password = null, $host = null, $timestamp = null, $token = null) {
+	function pinJSON($state = null, $pincode = null, $password = null, $host = null, $timestamp = null, $token = null) {
 		
 		$jsonarray = array(
 				"type"=>"pin",					//Type of object: PIN
-				"success"=>$success,			//State of the last method executed on the object
+				"state"=>$state,				//State of the last transaction executed on the object, ie: 0 FALSE, 1 TRUE, 200 ERROR, 201 ERROR TYPE 1
 				"pincode"=>$pincode,			//Alphanumeric PIN that identifies this object
 				"password"=>$password,			//PIN's password
 				"host"=>$host,					//PIN's host, ie: droidko.com

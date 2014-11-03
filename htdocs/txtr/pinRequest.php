@@ -35,7 +35,7 @@
 
 			if ($retry > $MAX_ATTEMPTS) {
 				if ($output == 'html') { echo "Error: Max attempts reach"; }
-				elseif ($output == 'json') { echo pinJSON(false, null); }
+				elseif ($output == 'json') { echo pinJSON(200); }
 			}
 			else {
 				//Finally, a unique PIN is returned with it's auth token
@@ -45,7 +45,7 @@
 					echo "PIN CODE: ".$pincode."<br>";
 					echo "PIN TOKEN: ".$pintoken;
 				};
-				if ($output == 'json') { echo pinJSON(true, $pincode, null, null, null, $pintoken); }				
+				if ($output == 'json') { echo pinJSON(1, $pincode, null, null, null, $pintoken); }				
 			}
 
 		?>
