@@ -19,7 +19,7 @@
 	   die();
 	}
 
-	function message($ans, $validMethods = []) {
+	function messageHTML($ans, $validMethods = []) {
 		switch ($ans) {
 			case 1:
 				return "API: No method specified, please provide one with GET: ?method=" . implode(" or ",$validMethods) . "<br>";			
@@ -30,6 +30,28 @@
 			default:
 				return "API: Unknown error";
 		}
+	}
+
+	function messageJSON($ans) {
+		include '../utils/jsontools.php';
+		switch ($ans) {
+			case 1:
+				return apiJSON(200); //No method provided		
+
+			case 2:
+				return apiJSON(201); //Invalid method provided
+			
+			default:
+				return apiJSON(299); //Unknown error
+		}
+	}
+
+	//Check how the output is needed, may be plain html or a json object. Default is HTML
+	if (isset($_GET["output"])) {
+		$output = $_GET["output"];
+	}
+	else {
+		$output = 'html';
 	}
 
 	//Check the method variable to determine where to redirect the request
@@ -45,13 +67,15 @@
 				break;
 			
 			default:
-				echo message(2, $methods);
+				if($output == 'html') {echo messageHTML(2, $methods);}
+				else {echo messageJSON(2);}
 				break;
 		}
 
 	}
 	else {
-		echo message(1, $methods);
+		if($output == 'html') {echo messageHTML(1, $methods);}
+		else {echo messageJSON(1);}
 	}
 
 ?>

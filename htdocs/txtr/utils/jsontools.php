@@ -18,4 +18,17 @@
 		return json_encode($jsonarray);
 	}
 
+	//This is an overloaded function, every argument is optional. If an argmuent is not supplied,
+	//the function will use the default values specified
+	//Arguments: apiJSON($success)
+	function apiJSON($state = null) {
+		
+		$jsonarray = array(
+				"type"=>"api",					//Type of object: API
+				"state"=>$state,				//State of the last transaction executed on the object, ie: 0 FALSE, 1 TRUE, 200 ERROR, 201 ERROR TYPE 1				
+				);
+
+		return json_encode($jsonarray);
+	}
+
 ?>
