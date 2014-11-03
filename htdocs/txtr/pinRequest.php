@@ -9,6 +9,7 @@
 			//pintools.php has some useful tools for generating PINs
 			include 'utils/pintools.php';
 			include 'utils/jsontools.php';
+			include 'utils/gentools.php';
 
 			//Static
 			$MAX_ATTEMPTS = 5;
@@ -36,12 +37,14 @@
 				elseif ($output == 'json') { echo pinJSON(false, null); }
 			}
 			else {
-				//Finally, a unique PIN is returned
+				//Finally, a unique PIN is returned with it's auth token
+				$pintoken = generatePinToken($pincode);
 				if ($output == 'html') { 
 					echo "Unique PIN found<br>";
-					echo "PIN: ".$pincode;
+					echo "PIN CODE: ".$pincode."<br>";
+					echo "PIN TOKEN: ".$pintoken;
 				};
-				if ($output == 'json') { echo pinJSON(true, $pincode); }				
+				if ($output == 'json') { echo pinJSON(true, $pincode, null, null, null, $pintoken); }				
 			}
 
 		?>

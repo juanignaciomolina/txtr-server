@@ -16,7 +16,7 @@
 
 	//Generate auth token for PINs creation
 	function generatePinToken ($pincode) {
-		include './hostconfig.php'; //The file has the $pintokenkey value
+		include './config/hostconfig.php'; //The file has the $pintokenkey value
 		return crypt($pincode, $pintokenkey); //crypt(stringToEncrypt, key)
 	}
 
