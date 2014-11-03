@@ -10,6 +10,7 @@
 			include 'utils/pintools.php';
 			include 'utils/jsontools.php';
 			include 'utils/gentools.php';
+			include 'config/hostconfig.php'; //The file has the $pintokenkey value
 
 			//Static
 			$MAX_ATTEMPTS = 5;
@@ -38,7 +39,7 @@
 			}
 			else {
 				//Finally, a unique PIN is returned with it's auth token
-				$pintoken = generatePinToken($pincode);
+				$pintoken = generateToken($pincode, $pintokenkey);
 				if ($output == 'html') { 
 					echo "Unique PIN found<br>";
 					echo "PIN CODE: ".$pincode."<br>";
