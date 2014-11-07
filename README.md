@@ -36,6 +36,9 @@ Includes 3 layers:
 * gentools: General use functions for using server-wide
 * jsontools: Library for JSON objects encode and management
 
+###### Tests
+* pinTest: Automatic tests for PINs methods
+
 ## Prosody XMPP Server
 
 ##### Client-Server
