@@ -55,6 +55,12 @@ Includes 3 layers:
 4. MySQL [INFO](http://prosody.im/doc/storage) -> **OK**
 5. LuaEvent [INFO](http://prosody.im/doc/depends) -> **OK**
 
+## Releases
+
+***(dd/mm/aaaa)***
+
+* v0.1.0: 07/11/2014
+
 ## Additional notes
 
 * mysqld.sock [FIX INFO](http://stackoverflow.com/questions/11990708/error-cant-connect-to-local-mysql-server-through-socket-var-run-mysqld-mysq)
