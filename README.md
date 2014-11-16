@@ -17,6 +17,7 @@ Includes 3 layers:
 
 * pinRequest: Generate new unique PIN
 * pinRegister: Register a given PIN in the DB
+* pinDismiss: Delete a given PIN and all its related data from the DB
 
 ###### API
 
