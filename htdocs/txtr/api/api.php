@@ -65,6 +65,10 @@
 			case 'pinRegister':
 				redirect("pinRegister.php?".$vars);
 				break;
+
+			case 'pinDismiss':
+				redirect("pinDismiss.php?".$vars);
+				break;
 			
 			default:
 				if($output == 'html') {echo messageHTML(2, $methods);}
