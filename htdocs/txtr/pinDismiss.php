@@ -43,7 +43,7 @@
 					if ($output == 'html') { echo "Error: invalid PINTOKEN<br>"; }
 					elseif ($output == 'json') { echo pinJSON(202); }
 				}
-				//We need to check if the PIN provided is already registerd
+				//We need to check if the PIN provided is already registered
 				elseif ( !checkExistance($pincode) ) {
 					if ($output == 'html') { echo "Error: PINCODE not found<br>"; }
 					elseif ($output == 'json') { echo pinJSON(203); }

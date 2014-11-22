@@ -32,7 +32,7 @@
 			}
 			//A Token is needed to verify that the pincode was provided by the API
 			elseif (!isset($_GET["pintoken"])) {
-				if ($output == 'html') { echo "Error: No PINTOKEN provided.<br> Send a PINTOKEN with GET method: pinRegister.php?pincode=pinTokenAuth"; }
+				if ($output == 'html') { echo "Error: No PINTOKEN provided.<br> Send a PINTOKEN with GET method: pinRegister.php?token=pinTokenAuth"; }
 				elseif ($output == 'json') { echo pinJSON(201); }
 			}
 

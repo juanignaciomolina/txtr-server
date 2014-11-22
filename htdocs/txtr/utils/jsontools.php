@@ -13,7 +13,7 @@
 				"host"=>$host,					//PIN's host, ie: droidko.com
 				"creationdate"=>$creation,		//Date of PIN's creation
 				"apitime"=>time(),				//API time at the moment of the JSON object creation
-				"token"=>$token					//The token is the result of applying a hashing algorithm to the pincode					
+				"pintoken"=>$token				//The token is the result of applying a hashing algorithm to the pincode					
 				);
 
 		return json_encode($jsonarray);
