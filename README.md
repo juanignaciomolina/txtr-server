@@ -6,7 +6,7 @@ Includes 3 layers:
 
 1. TXTR server
 2. MySQL database engine
-2. Prosody XMPP server
+2. ejabberd XMPP server
 
 ## Overview
 ![screenshots](https://raw.githubusercontent.com/juanignaciomolina/txtr-server/master/TXTR-LayersDiagram.png)
@@ -50,17 +50,18 @@ Includes 3 layers:
 5. TLS/SSL [INFO](http://prosody.im/doc/certificates) -> **OK** (self-signed for testing)
 
 ##### Server Only
-1. zLib [INFO](http://prosody.im/doc/depends) -> **OK**
-2. LuaSec 0.5 [INFO](http://prosody.im/doc/depends) -> **OK**
-3. LuaDBI *(lua-dbi-mysql)* [INFO](http://prosody.im/doc/depends) -> **OK**
-4. MySQL [INFO](http://prosody.im/doc/storage) -> **OK**
-5. LuaEvent [INFO](http://prosody.im/doc/depends) -> **OK**
+1. ~~zLib [INFO](http://prosody.im/doc/depends) -> **OK**~~
+2. ~~LuaSec 0.5 [INFO](http://prosody.im/doc/depends) -> **OK**~~
+3. ~~LuaDBI *(lua-dbi-mysql)* [INFO](http://prosody.im/doc/depends) -> **OK**~~
+4. ~~MySQL [INFO](http://prosody.im/doc/storage) -> **OK**~~
+5. ~~LuaEvent [INFO](http://prosody.im/doc/depends) -> **OK**~~
 
 ## Releases
 
 ***(dd/mm/aaaa)***
 
 * v0.1.0: 07/11/2014
+* v0.2.0: 23/11/2014pr
 
 ## Additional notes
 
