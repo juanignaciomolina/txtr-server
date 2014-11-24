@@ -1,0 +1,5 @@
+Options +FollowSymLinks
+RewriteEngine on
+
+RewriteCond %{HTTP_HOST} ^api.droidko.com$ [NC]
+RewriteRule ^(.*)$ http://droidko.com/txtr/api/ [L]
