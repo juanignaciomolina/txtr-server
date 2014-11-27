@@ -66,3 +66,4 @@ Includes 3 layers:
 ## Additional notes
 
 * mysqld.sock [FIX INFO](http://stackoverflow.com/questions/11990708/error-cant-connect-to-local-mysql-server-through-socket-var-run-mysqld-mysq)
+* Unable to connect to MySQL from ejabberd. Check network access to db (even from localhost) [FIX INFO](http://rclermont.blogspot.com.ar/2008/05/configuring-mysql-for-network-access.html)
