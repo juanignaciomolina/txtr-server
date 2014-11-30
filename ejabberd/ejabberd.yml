@@ -312,7 +312,11 @@ odbc_type: mysql
 odbc_server: "localhost"
 odbc_database: "ejabberd"
 odbc_username: "ejabberd"
+<<<<<<< HEAD
 odbc_password: "Br23pRCTWDmnVjPT"
+=======
+odbc_password: "Pu3rVudLGbn53sFd"
+>>>>>>> origin/master
 ##
 ## If you want to specify the port:
 ## odbc_port: 1234
@@ -365,9 +369,16 @@ shaper:
   ##
   fast: 50000
 
+<<<<<<< HEAD
   ## The "proxyrate_normal" shaper limits traffic speed to 300000 B/s (300KB/s)
   ##
   proxyrate_normal: 300000
+=======
+  ##
+  ## The "mod65_normal" shaper limits traffic speed to 80000 B/s
+  ##
+  mod65_normal: 80000
+>>>>>>> origin/master
 
 ##
 ## This option specifies the maximum number of elements in the queue
@@ -385,9 +396,13 @@ acl:
   admin:
     user:
       - "admin-juan": "droidko.com"
+<<<<<<< HEAD
   proxy_users: 
     server: 
       - "droidko.com"
+=======
+
+>>>>>>> origin/master
   ##
   ## Blocked users
   ##
