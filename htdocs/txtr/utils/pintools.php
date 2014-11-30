@@ -1,14 +1,4 @@
 <?php
-	//**GLOBAL VARS**
-	$state_dbconn;
-
-	function getDBStatus () {
-		return $state_dbconn;
-	}
-
-	function saveStatus($dbconnrcv) {
-		$state_dbconn = $dbconnrcv;
-	}
 
 	function generatePincode () {
 		//Generate random 7 chars (A-Z,0-9) PIN
@@ -43,7 +33,6 @@
 		    $returnCode = true;
 		}
 
-		saveStatus($connDbEjabberd);
 		//Close MySQL connection to db ejabberd
 		include './config/closedbejabberd.php';
 
@@ -63,10 +52,8 @@
 		    $returnCode = true;
 		} else {
 		    $returnCode = false;
-		    echo "Error: ". mysqli_error($connDbEjabberd) . "<br>";
 		}
 
-		saveStatus($connDbEjabberd);
 		//Close MySQL connection to db ejabberd
 		include './config/closedbejabberd.php';
 
@@ -89,7 +76,6 @@
 		    $returnCode = false;
 		}
 
-		saveStatus($connDbEjabberd);
 		//Close MySQL connection to db ejabberd
 		include './config/closedbejabberd.php';
 
