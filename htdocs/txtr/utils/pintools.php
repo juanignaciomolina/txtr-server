@@ -14,9 +14,8 @@
 	}
 
 	function checkExistance ($pincode) {
-		//Open MySQL connection to db prosody
+		//Open MySQL connection to db ejabberd
 		include './config/opendbejabberd.php';
-		include './config/hostconfig.php';
 
 		//Query to count how many rows got the same user id as the $pincode, should return 0 or 1
 		$query = 	"SELECT ".$dbe_col_user.
@@ -32,20 +31,18 @@
 		    $returnCode = true;
 		}
 
-		//Close MySQL connection to db prosody
+		//Close MySQL connection to db ejabberd
 		include './config/closedbejabberd.php';
 
 		return $returnCode;
 	}
 
 	function makePin ($pincode, $password) {
-		//Open MySQL connection to db prosody
-		include './config/mysqlconfig.php';
+		//Open MySQL connection to db ejabberd
 		include './config/opendbprosody.php';
-		include './config/hostconfig.php';
 
-		$query = 	"INSERT INTO ".$dbprosody_table.
-					" VALUES ('".$virtualhost."', '".$pincode."', '".$dbprosody_col_acc."', '".$dbprosody_col_pass."', '".$dbprosody_col_string."', '".$password."')";
+		$query = 	"INSERT INTO ".$dbe_tab_users.
+					" VALUES ('".$pincode."', '".$password."')";
 
 		if (mysqli_query($connDbProsody, $query)) {
 		    $returnCode = true;
@@ -53,7 +50,7 @@
 		    $returnCode = false;
 		}
 
-		//Close MySQL connection to db prosody
+		//Close MySQL connection to db ejabberd
 		include './config/closedbprosody.php';
 
 		//The result of the query (true, false) is returned
