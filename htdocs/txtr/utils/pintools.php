@@ -13,6 +13,8 @@
 		return $pincode;
 	}
 
+	//INPUT: pincode
+	//OUTPUT: return true if the pincode is registered, false otherwise
 	function checkExistance ($pincode) {
 		//Open MySQL connection to db ejabberd
 		include './config/opendbejabberd.php';
@@ -37,6 +39,8 @@
 		return $returnCode;
 	}
 
+	//INPUT: pincode, password
+	//OUTPUT: insert a PIN in the users DB. Returns true if the transaction was OK
 	function makePin ($pincode, $password) {
 		//Open MySQL connection to db ejabberd
 		include './config/opendbejabberd.php';
@@ -57,6 +61,8 @@
 		return $returnCode;
 	}
 
+	//INPUT: pincode
+	//OUTPUT: delete a PIN from the users DB. Returns true if the transaction was OK
 	function deletePin ($pincode) {
 		//Open MySQL connection to db ejabberd
 		include './config/opendbejabberd.php';
@@ -77,26 +83,11 @@
 		return $returnCode;
 	}
 
-	function purgePin ($pincode) {
-		//Open MySQL connection to db prosody
-		include './config/mysqlconfig.php';
-		include './config/opendbprosody.php';
-		include './config/hostconfig.php';
-
-		$query = 	"DELETE FROM ".$dbprosody_table.
-					" WHERE ".$dbprosody_user."='".$pincode."'";
-
-		if (mysqli_query($connDbProsody, $query)) {
-		    $returnCode = true;
-		} else {
-		    $returnCode = false;
-		}
-
-		//Close MySQL connection to db prosody
-		include './config/closedbprosody.php';
-
-		//The result of the query (true, false) is returned
-		return $returnCode;
+	//INPUT: pincode
+	//OUTPUT: delete a PIN and its data from EVERY storage. Returns true if the transaction was OK	
+	function purgePin ($pincode) {		
+		//Method currently not available, using deletePin() instead
+		return deletePin($pincode);
 	}		
 
 ?>
