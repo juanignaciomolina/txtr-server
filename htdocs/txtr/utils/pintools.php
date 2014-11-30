@@ -44,7 +44,7 @@
 		$query = 	"INSERT INTO ".$dbe_tab_users.
 					" VALUES ('".$pincode."', '".$password."')";
 
-		if (mysqli_query($connDbProsody, $query)) {
+		if (mysqli_query($connDbEjabberd, $query)) {
 		    $returnCode = true;
 		} else {
 		    $returnCode = false;
@@ -58,22 +58,20 @@
 	}
 
 	function deletePin ($pincode) {
-		//Open MySQL connection to db prosody
-		include './config/mysqlconfig.php';
-		include './config/opendbprosody.php';
-		include './config/hostconfig.php';
+		//Open MySQL connection to db ejabberd
+		include './config/opendbejabberd.php';
 
-		$query = 	"DELETE FROM ".$dbprosody_table.
-					" WHERE ".$dbprosody_user."='".$pincode."' AND ".$dbprosody_store."='".$dbprosody_col_acc."'";
+		$query = 	"DELETE FROM ".$dbe_tab_users.
+					" WHERE ".$dbe_col_user."='".$pincode."'";
 
-		if (mysqli_query($connDbProsody, $query)) {
+		if (mysqli_query($connDbEjabberd, $query)) {
 		    $returnCode = true;
 		} else {
 		    $returnCode = false;
 		}
 
-		//Close MySQL connection to db prosody
-		include './config/closedbprosody.php';
+		//Close MySQL connection to db ejabberd
+		include './config/opendbejabberd.php';
 
 		//The result of the query (true, false) is returned
 		return $returnCode;
