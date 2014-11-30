@@ -15,16 +15,15 @@
 
 	function checkExistance ($pincode) {
 		//Open MySQL connection to db prosody
-		include './config/mysqlconfig.php';
-		include './config/opendbprosody.php';
+		include './config/opendbejabberd.php';
 		include './config/hostconfig.php';
 
 		//Query to count how many rows got the same user id as the $pincode, should return 0 or 1
-		$query = 	"SELECT ".$dbprosody_user.", ".$dbprosody_store.
-					" FROM ". $dbprosody_table .
-					" WHERE ".$dbprosody_user."='".$pincode."' AND ".$dbprosody_store."='".$dbprosody_col_acc."'";
+		$query = 	"SELECT ".$dbe_col_user.
+					" FROM " .$dbe_tab_users.
+					" WHERE ".$dbe_col_user."='".$pincode."'";
 
-		$result = mysqli_query($connDbProsody, $query);
+		$result = mysqli_query($connDbEjabberd, $query);
 
 		//If num_rows == 0 the $pincode generated is unique in the db
 		if (mysqli_num_rows($result) == 0) {
@@ -34,7 +33,7 @@
 		}
 
 		//Close MySQL connection to db prosody
-		include './config/closedbprosody.php';
+		include './config/closedbejabberd.php';
 
 		return $returnCode;
 	}
