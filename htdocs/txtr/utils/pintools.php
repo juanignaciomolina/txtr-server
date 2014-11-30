@@ -39,7 +39,7 @@
 
 	function makePin ($pincode, $password) {
 		//Open MySQL connection to db ejabberd
-		include './config/opendbprosody.php';
+		include './config/opendbejabberd.php';
 
 		$query = 	"INSERT INTO ".$dbe_tab_users.
 					" VALUES ('".$pincode."', '".$password."')";
@@ -51,7 +51,7 @@
 		}
 
 		//Close MySQL connection to db ejabberd
-		include './config/closedbprosody.php';
+		include './config/closedbejabberd.php';
 
 		//The result of the query (true, false) is returned
 		return $returnCode;
