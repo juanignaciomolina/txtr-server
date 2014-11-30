@@ -24,7 +24,7 @@
 			if ( isset($_GET["pincode"]) and isset($_GET["pintoken"]) ) {
 				$pincode = $_GET["pincode"];
 				$pintoken = $_GET["pintoken"];
-				tryRegister($output, $pincode, $pintoken, $pintokenkey, $virtualhost);
+				tryRegister($output, $pincode, $pintoken, $pintokenkey, $virtualhost, getDBStatus() );
 			}
 			elseif (!isset($_GET["pincode"])) {
 				if ($output == 'html') { echo "Error: No PINCODE provided.<br> Send a PINCODE with GET method: pinRegister.php?pincode=pinToRegister"; }
@@ -32,11 +32,11 @@
 			}
 			//A Token is needed to verify that the pincode was provided by the API
 			elseif (!isset($_GET["pintoken"])) {
-				if ($output == 'html') { echo "Error: No PINTOKEN provided.<br> Send a PINTOKEN with GET method: pinRegister.php?token=pinTokenAuth"; }
+				if ($output == 'html') { echo "Error: No PINTOKEN provided.<br> Send a PINTOKEN with GET method: pinRegister.php?pintoken=pinTokenAuth"; }
 				elseif ($output == 'json') { echo pinJSON(201); }
 			}
 
-			function tryRegister($output, $pincode, $pintoken, $pintokenkey, $virtualhost) {
+			function tryRegister($output, $pincode, $pintoken, $pintokenkey, $virtualhost, $dbconn) {
 
 
 				if ($pintoken !== generateToken($pincode, $pintokenkey)) {
@@ -67,7 +67,7 @@
 					}
 					else {
 						//If there was a problem registering the PIN we return a failed state
-						if ($output == 'html') { echo "Error: ". mysqli_error($connDbProsody) . "<br>"; }
+						if ($output == 'html') { echo "Error: ". mysqli_error($dbconn) . "<br>"; }
 						elseif ($output == 'json') { echo pinJSON(204); }
 					}
 					

@@ -32,7 +32,7 @@
 			}
 			//A Token is needed to verify that the pincode was provided by the API
 			elseif (!isset($_GET["pintoken"])) {
-				if ($output == 'html') { echo "Error: No PINTOKEN provided.<br> Send a PINTOKEN with GET method: pinDismiss.php?pincode=pinTokenAuth"; }
+				if ($output == 'html') { echo "Error: No PINTOKEN provided.<br> Send a PINTOKEN with GET method: pinDismiss.php?pintoken=pinTokenAuth"; }
 				elseif ($output == 'json') { echo pinJSON(201); }
 			}
 
@@ -63,7 +63,7 @@
 					}
 					else {
 						//If there was a problem registering the PIN we return a failed state
-						if ($output == 'html') { echo "Error: ". mysqli_error($connDbProsody) . "<br>"; }
+						if ($output == 'html') { echo "Error: ". mysqli_error($state_dbconn) . "<br>"; }
 						elseif ($output == 'json') { echo pinJSON(204); }
 					}
 					
