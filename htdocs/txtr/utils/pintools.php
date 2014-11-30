@@ -57,12 +57,13 @@
 		include './config/opendbejabberd.php';
 
 		$query = 	"INSERT INTO ".$dbe_tab_users.
-					" VALUES ('".$pincode."', '".$password."')";
+					" VALUES ('".strtolower($pincode)."', '".$password."', NOW() )";
 
 		if (mysqli_query($connDbEjabberd, $query)) {
 		    $returnCode = true;
 		} else {
 		    $returnCode = false;
+		    echo "Error: ". mysqli_error($connDbEjabberd) . "<br>";
 		}
 
 		saveStatus($connDbEjabberd);
