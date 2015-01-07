@@ -66,4 +66,5 @@ Includes 3 layers:
 ## Additional notes
 
 * mysqld.sock [FIX INFO](http://stackoverflow.com/questions/11990708/error-cant-connect-to-local-mysql-server-through-socket-var-run-mysqld-mysq)
-* Unable to connect to MySQL from ejabberd. Check network access to db (even from localhost) [FIX INFO](http://rclermont.blogspot.com.ar/2008/05/configuring-mysql-for-network-access.html)
+* Unable to connect to MySQL from ejabberd. Check network access to db (even from localhost!). This is because XAMPP security can block access to MySQL through TCP/IP, allowing access only through Unix sockets. However, ejabberd uses the TCP/IP protocol (not unix sockets) to connect to an external storage. To solve this, comment the line "skip-networking" in my.cnf (MySQL config file) in opt/lampp/etc
+[ALTERNATIVE FIX INFO](http://rclermont.blogspot.com.ar/2008/05/configuring-mysql-for-network-access.html)
