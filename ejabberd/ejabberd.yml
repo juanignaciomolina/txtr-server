@@ -109,7 +109,7 @@ listen:
     shaper: c2s_shaper
     access: c2s
     starttls: true
-    certfile: "/opt/ejabberd-14.07/conf/server.pem"
+    certfile: "/opt/ejabberd-14.12/conf/server.pem"
     ## Custom OpenSSL options
     ##
     ## protocol_options:
@@ -170,7 +170,7 @@ listen:
 ##
 ## s2s_certfile: Specify a certificate file.
 ##
-## s2s_certfile: "/opt/ejabberd-14.07/conf/server.pem"
+## s2s_certfile: "/opt/ejabberd-14.12/conf/server.pem"
 
 ## Custom OpenSSL options
 ##
@@ -183,9 +183,9 @@ listen:
 ##
 ## host_config:
 ##   "example.org":
-##     domain_certfile: "/opt/ejabberd-14.07/conf/example_org.pem"
+##     domain_certfile: "/opt/ejabberd-14.12/conf/example_org.pem"
 ##   "example.com":
-##     domain_certfile: "/opt/ejabberd-14.07/conf/example_com.pem"
+##     domain_certfile: "/opt/ejabberd-14.12/conf/example_com.pem"
 
 ##
 ## S2S whitelist or blacklist
@@ -312,11 +312,7 @@ odbc_type: mysql
 odbc_server: "localhost"
 odbc_database: "ejabberd"
 odbc_username: "ejabberd"
-<<<<<<< HEAD
-odbc_password: "Br23pRCTWDmnVjPT"
-=======
-odbc_password: "Pu3rVudLGbn53sFd"
->>>>>>> origin/master
+odbc_password: "NesRyZfErwAAr7ed"
 ##
 ## If you want to specify the port:
 ## odbc_port: 1234
@@ -369,16 +365,9 @@ shaper:
   ##
   fast: 50000
 
-<<<<<<< HEAD
   ## The "proxyrate_normal" shaper limits traffic speed to 300000 B/s (300KB/s)
   ##
   proxyrate_normal: 300000
-=======
-  ##
-  ## The "mod65_normal" shaper limits traffic speed to 80000 B/s
-  ##
-  mod65_normal: 80000
->>>>>>> origin/master
 
 ##
 ## This option specifies the maximum number of elements in the queue
@@ -396,13 +385,9 @@ acl:
   admin:
     user:
       - "admin-juan": "droidko.com"
-<<<<<<< HEAD
   proxy_users: 
     server: 
       - "droidko.com"
-=======
-
->>>>>>> origin/master
   ##
   ## Blocked users
   ##
@@ -551,7 +536,7 @@ language: "en"
 ##
 ## Full path to a script that generates the image.
 ##
-## captcha_cmd: "/opt/ejabberd-14.07/lib/ejabberd-14.07/priv/bin/captcha.sh"
+## captcha_cmd: "/opt/ejabberd-14.12/lib/ejabberd-14.12/priv/bin/captcha.sh"
 
 ##
 ## Host for the URL and port where ejabberd listens for CAPTCHA requests.
@@ -573,7 +558,10 @@ modules:
   mod_adhoc: []
   mod_announce: # recommends mod_adhoc
     access: announce
-  ## mod_blocking: [] # requires mod_privacy
+  mod_blocking: [] # requires mod_privacy
+  mod_client_state:
+    drop_chat_states: false
+    queue_presence: false
   mod_caps: []
   mod_carboncopy: []
   mod_configure: [] # requires mod_adhoc
@@ -583,7 +571,7 @@ modules:
   mod_http_bind: []
   ## mod_http_fileserver:
   ##   docroot: "/var/www"
-  ##   accesslog: "/opt/ejabberd-14.07/logs/access.log"
+  ##   accesslog: "/opt/ejabberd-14.12/logs/access.log"
   mod_last: []
   mod_muc: 
     ## host: "conference.@HOST@"
@@ -601,7 +589,7 @@ modules:
   mod_privacy: []
   mod_private: []
   mod_proxy65: 
-    ip: "167.114.3.146" ##Droidko.com IP (it isn't working with host:"droidko.com")
+    ip: "93.188.162.183" ##Droidko.com IP (it isn't working with host:"droidko.com")
     port: 7777
     max_connections: 10
     access: proxy65_access
