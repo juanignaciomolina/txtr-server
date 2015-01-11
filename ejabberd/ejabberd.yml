@@ -115,11 +115,12 @@ listen:
     ## protocol_options:
     ##   - "no_sslv3"
     ##   - "no_tlsv1"
-  - 
-    port: 5269
-    module: ejabberd_s2s_in
-    max_stanza_size: 131072
-    shaper: s2s_shaper
+  ##  TXTR CUSTOM - DISABLE CONNECTIONS FROM OTHER JABBER SERVERS
+  ##- 
+  ##  port: 5269
+  ##  module: ejabberd_s2s_in
+  ##  max_stanza_size: 131072
+  ##  shaper: s2s_shaper
   ##
   ## ejabberd_service: Interact with external components (transports, ...)
   ##
@@ -490,7 +491,7 @@ access:
   ## In-band registration allows registration of any possible username.
   ## To disable in-band registration, replace 'allow' with 'deny'.
   register: 
-    all: allow
+    all: deny ##default: allow
   ## Only allow to register from localhost
   trusted_network: 
     loopback: allow
@@ -559,7 +560,7 @@ modules:
   mod_announce: # recommends mod_adhoc
     access: announce
   mod_blocking: [] # requires mod_privacy
-  mod_client_state:
+  mod_client_state: #TXTR: Not working properly with the official client
     drop_chat_states: false
     queue_presence: false
   mod_caps: []
@@ -568,7 +569,7 @@ modules:
   mod_disco: []
   ## mod_echo: []
   ## mod_irc: []
-  mod_http_bind: []
+  mod_http_bind: [] # Enables BOSH connections
   ## mod_http_fileserver:
   ##   docroot: "/var/www"
   ##   accesslog: "/opt/ejabberd-14.12/logs/access.log"
@@ -587,7 +588,7 @@ modules:
   ##   count: 5
   ##   interval: 60
   mod_privacy: []
-  mod_private: []
+  ## mod_private: []
   mod_proxy65: 
     ip: "93.188.162.183" ##Droidko.com IP (it isn't working with host:"droidko.com")
     port: 7777
@@ -647,8 +648,8 @@ modules:
   mod_roster: []
   mod_shared_roster: []
   ## mod_time: []
-  mod_vcard: []
-  mod_version: []
+  ## mod_vcard: []
+  ## mod_version: []
 
 ##
 ## Enable modules with custom options in a specific virtual host
